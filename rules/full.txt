@@ -279,6 +279,7 @@ to both sides. In all cases, the judge's decision is final.
 * A glyph must be taped to a wall in the owning team's territory or side
  of a door that would be in the owning team's territory if it were closed.
 ** Once placed, all glyphs are considered part of the owning team’s territory.
+:** Glyphs may not be mounted on elevator doors.
 * A glyph affects all normal players on opposing teams in its owning team's
   territory.
 * A glyph may not be placed within ten feet of a flag.  If a flag is dropped
@@ -309,7 +310,7 @@ this glyph.
 buttons controlling an elevator, no affected player may push any of the
 buttons or prevent the elevator doors from closing.
 :** The Glyph of the Disgusting Doorknob may not be mounted inside an
-elevator or upon elevator doors.
+elevator.
 * Any player must be able to exit to neutral territory without opening any
 door from a side affected by a Glyph of the Disgusting Doorknob or activating
 any stuff. No player can be completely trapped by this glyph.
