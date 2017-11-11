@@ -12,13 +12,15 @@ $hfudge = "0.325in" # Wean 5 printer (2017f)
 #$hfudge = "0.40625in" # Doherty 1 printer (2016s)
 $vfudge = "0.027in" # Wean 5 printer (2017f)
 $infiledefault = "full.txt"
-$htmlfile = "full.php"
+$htmlfile = "full.html"
+$phpfile = "full.php"
 $pdffile = "handbook.pdf"
 
 def usage
    puts "Usage: #$0 [-H hoffset] [-V voffset] [-w out.html] [-p out.pdf] [infile]"
    puts "  -H     horizontal offset for pages, in TeX units (e.g., 0.1in, 3pt)"
    puts "  -V     vertical offset for pages, in TeX units (e.g., 0.1in, 3pt)"
+   puts "  -w     output file for PHP [default: #$phpfile]"
    puts "  -w     output file for web/html [default: #$htmlfile]"
    puts "  -p     output file for pdf [default: #$pdffile]"
    puts "  infile input file [default: #$infiledefault]"
@@ -192,7 +194,7 @@ def check_label(line, labels, s, ss = nil, r = nil, sr = nil)
    return line
 end
 
-def write_html(file, sections)
+def write_html(header, footer, file, sections)
    labels = {}
    lines = []
    sectionc = 0
@@ -234,12 +236,12 @@ def write_html(file, sections)
    puts lines
    if file then
       File.open(file, "w") { |f|
-         f.puts(PHP_HEADER)
+         f.puts(header)
          lines.each {|l| f.puts(l.gsub(/\(:/, '<span class="change">').
                                   gsub(/:\)/, '</span>').
                                   gsub(/\[\[([a-zA-Z0-9_-]*)\]\]/) { labels[$1] }.
                                   gsub(/\{[^}]*\}/, '')) }
-         f.puts(PHP_FOOTER)
+         f.puts(footer)
       }
    end
 end
@@ -394,6 +396,11 @@ h3, .h3
    font-size: 11pt;
    color: #000000;
    margin-left: 0.5em;
+}
+
+span.change
+{
+   color: red;
 }
 </style></script></head><body>
 
@@ -581,7 +588,8 @@ getargs()
 
 rules = read_file($infile)
 
-write_html($htmlfile, rules)
+write_html(PHP_HEADER, PHP_FOOTER, $phpfile, rules)
+write_html(HTML_HEADER, HTML_FOOTER, $htmlfile, rules)
 
 write_tex("texfiles/rules.tex", $infile)
 system "cd texfiles; make; cp rules.pdf ../#$pdffile; make clean"
