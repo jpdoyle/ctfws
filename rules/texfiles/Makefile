@@ -4,7 +4,7 @@ ${ASSN}.pdf: ${ASSN}.ps
 	ps2pdf ${ASSN}.ps
 
 ${ASSN}.ps: ${ASSN}.dvi
-	dvips -t landscape ${ASSN}.dvi
+	dvips -T 11in,8.5in ${ASSN}.dvi #-t landscape ${ASSN}.dvi
 
 ${ASSN}.dvi: ${ASSN}.tex bkltprnt.sty
 	latex ${ASSN}.tex

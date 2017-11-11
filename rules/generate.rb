@@ -8,8 +8,9 @@
 #
 # Questions/comments can be sent to Evan Danaher, at ctfws@edanaher.net
 
-$hfudge = "0.40625in"
-$vfudge = "0in"
+$hfudge = "0.325in" # Wean 5 printer (2017f)
+#$hfudge = "0.40625in" # Doherty 1 printer (2016s)
+$vfudge = "0.027in" # Wean 5 printer (2017f)
 $infiledefault = "full.txt"
 $htmlfile = "full.php"
 $pdffile = "handbook.pdf"
