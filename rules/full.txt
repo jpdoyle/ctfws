@@ -211,12 +211,12 @@ captive is not required to give up a concealed item unless their captor
 asks for it specifically and knows that they have the item.
 ** Potions cannot be used while concealed.
 * Dispelling: A dispelled item has no magical effects.
-* Field of View: The field of view is the extent of the observable world that
-is visible to the player at any given moment.
+* Vision Cone: The vision cone is the extent of the observable world
+  that is visible to the player at any given moment.
 * Line of Sight: A player is within line of sight of an item or event
-if they can rotate themself to bring it into their field of view.
-* See: A player sees an item or event if it passes within their field of
-view and they can recognize it.
+if they can rotate themself to bring it into their vision cone.
+* See: A player sees an item or event if it passes within their vision
+  cone and they can recognize it.
 * Sacrificial: Red items are sacrificial. These items may
 only be activated in enemy territory, must be dropped upon use, and may not
 be picked up or moved when in enemy territory.
